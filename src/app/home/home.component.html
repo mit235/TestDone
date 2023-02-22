@@ -1,0 +1,10 @@
+
+<form  #homePageForm="ngForm" class="form-group">
+    <label>Enter the ID</label>
+    <input type="number" name="homePage" ngModel #homePageid="ngModel" required class="form-control">
+    <br>
+    <br>
+    <button type="submit" [disabled]="!homePageid.valid" class="btn btn-primary" routerLink="/templateform/{{homePageid.value}}" >submit</button>
+    <router-outlet></router-outlet>
+    </form>
+    

@@ -1,0 +1,98 @@
+<h2>templ works!</h2>
+
+<form #datateml="ngForm" class="container-fluid" (ngSubmit)="submit(datateml.value)">
+    <!-- {{datateml.value|json}} -->
+    <div class="form-group">
+        <label>Enter Your First Name:</label>
+        <input type="text" class="form-control" required [(ngModel)]="this.data.firstName" #firstname="ngModel" name="firstName" 
+            [class.is-invalid]="firstname.touched && firstname.invalid" placeholder="Enter First Name">
+        <small class="text-danger" *ngIf="firstname.touched && firstname.invalid">Plese Enter the first Name</small>
+    </div>
+
+
+    <div class="form-group">
+        <label>Enter Your second Name:</label>
+        <input type="text" class="form-control" required [(ngModel)]="this.data.secondName" ngModel #secondname="ngModel" name="secondName"
+             [class.is-invalid]="secondname.touched && secondname.invalid">
+        <small class="text-danger" *ngIf="secondname.touched && secondname.invalid">Plese Enter the second Name</small>
+    </div>
+
+ 
+
+    <div class="form-group">
+        <label>Enter Your last Name:</label>
+        <input type="text" class="form-control" required [(ngModel)]="this.data.lastName" ngModel #lastname="ngModel" name="lastName" 
+            [class.is-invalid]="lastname.touched && lastname.invalid">
+        <small class="text-danger" *ngIf="lastname.touched && lastname.invalid">Plese Enter the last Name</small>
+    </div>
+    <br><br>
+
+    <textarea [disabled]="true">{{firstname.value+" " +secondname.value+" " +lastname.value}}</textarea>
+
+    <div class="form-group">
+        <label>Enter Your Age</label>
+        <input type="number" class="form-control age" [(ngModel)]="this.data.age" required #age="ngModel" ngModel name="age" 
+            [class.is-invalid]="age.invalid && age.touched">
+        <small *ngIf="age.invalid && age.touched" class="text-danger">please Enter the Age</small>
+    </div>
+
+  <div class="form-group">
+    <label>Gender</label>
+    <div class="form-control">
+        <label for="" class="radio-inline">
+            <input type="radio" name="gender" value="male"  ngModel [(ngModel)]="this.data.gender">
+            Male
+        </label> 
+        <label for="" class="radio-inline">
+            <input type="radio" name="gender" value="female" ngModel [(ngModel)]="this.data.gender">
+            Female
+        </label>
+
+        <label for="" class="radio-inline">
+            <input type="radio" name="gender" value="other" ngModel [(ngModel)]="this.data.gender">
+            others
+        </label>
+
+    </div>
+  
+
+  </div>
+
+    <br><br>
+    <label for="hobbies">Select the hobbies from below</label><br>
+    <input type="checkbox" #hobby='ngModel' name="hobbiesDance"  [(ngModel)]="this.data.hobbiesDance"><label>Dancing</label><br>
+    <input type="checkbox" #hobby='ngModel' name="hobbiescricket"  [(ngModel)]="this.data.hobbiescricket" ><label>cricket</label><br>
+    <input type="checkbox" #hobby='ngModel' name="hobbiesswimming"  [(ngModel)]="this.data.hobbiesswimming"><label>swimming</label><br>
+    <input type="checkbox" #hobby='ngModel' name="hobbiesmusic"   [(ngModel)]="this.data.hobbiesmusic"> <label>music</label><br>
+    <input type="checkbox" #hobby='ngModel' name="hobbiesreading"   [(ngModel)]="this.data.hobbiesreading"><label>Reading</label><br><br><br>
+ 
+
+    <label>select the company</label>
+    <select ngModel #company="ngModel" [ngModel]="this.data.company" name="company">
+        <option value="techExtensor">Tech Extensor</option>
+        <option value="techExtensor" value="techExtensor">Microsoft</option>
+        <option value="google">Google</option>
+        <option value="adobe">Adobe</option>
+        <option value="facebook">Facebook</option>
+        <option value="tcs">TCS</option>
+        <option value="Infosys">Infosys</option>
+        <option value="twitter">Twitter</option>
+    </select>
+    <br><br><br>
+    <div class="row container-fluid">
+
+        <div class="col btn">
+            <button (click)="back()">Back</button>
+        </div>
+
+        <div class="col btn">
+            <input type="reset" value="Clear Form">
+        </div>
+
+        <div class="col btn">
+            <button type="submit">Submit</button>
+        </div>
+
+    </div>
+
+</form>

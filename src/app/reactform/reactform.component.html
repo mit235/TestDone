@@ -1,0 +1,98 @@
+<h2>reactform works!</h2>
+
+
+<form [formGroup]="reactform" class="container-fluid" (ngSubmit)="submit()">
+    <!-- {{reactform.value|json}} -->
+    <div class="form-group">
+        <label>Enter Your First Name:</label>
+        <input type="text" class="form-control" formControlName="firstName" name="firstName" value="firstName">
+        <!-- <small class="text-danger" >Plese Enter the first Name</small> -->
+    </div>
+
+
+    <div class="form-group">
+        <label>Enter Your second Name:</label>
+        <input type="text" class="form-control" formControlName="secondName" name="secondName" value="secondName">
+        <!-- <small class="text-danger" >Plese Enter the second Name</small> -->
+    </div>
+
+
+
+    <div class="form-group">
+        <label>Enter Your last Name:</label>
+        <input type="text" class="form-control" name="lastName" value="lastName" formControlName="lastName">
+        <!-- <small class="text-danger" >Plese Enter the last Name</small> -->
+    </div>
+    <br><br>
+
+    <textarea [disabled]="true" formControlName="fullName" [value]="reactform.get('fullName').value"></textarea>
+    <!-- <input type="text" [disabled]="true" formControlName="fullName" [value]="reactform.get('firstName').value+' '+ reactform.get('secondName').value+' '+ reactform.get('lastName').value"> -->
+    <div class="form-group">
+        <label>Enter Your Age</label>
+        <input type="number" class="form-control age" name="age" value="age" formControlName="age">
+        <!-- <small  class="text-danger">please Enter the Age</small> -->
+    </div>
+
+    <div class="form-group">
+        <label>Gender</label>
+        <div class="form-control">
+            <label for="" class="radio-inline">
+                <input type="radio" name="gender" value="male" formControlName="gender">
+                Male
+            </label>
+            <label for="" class="radio-inline">
+                <input type="radio" name="gender" value="female" formControlName="gender">
+                Female
+            </label>
+
+            <label for="" class="radio-inline">
+                <input type="radio" name="gender" value="others" formControlName="gender">
+                others
+            </label>
+
+        </div>
+
+
+    </div>
+
+    <br><br>
+    <label for="hobbies">Select the hobbies from below</label><br>
+    <input type="checkbox" formControlName="hobbiesDance" name="hobbiesDance" value="dancing"><label>Dancing</label><br>
+    <input type="checkbox" formControlName="hobbiescricket" name="hobbiescricket"
+        value="cricket"><label>cricket</label><br>
+    <input type="checkbox" formControlName="hobbiesswimming" name="hobbiesswimming"
+        value="swimming"><label>swimming</label><br>
+    <input type="checkbox" formControlName="hobbiesmusic" name="hobbiesmusic" value="music"> <label>music</label><br>
+    <input type="checkbox" formControlName="hobbiesreading" name="hobbiesreading"
+        value="reading"><label>Reading</label><br><br><br>
+
+
+    <label>select the company</label>
+    <select name="company" formControlName="company">
+        <option value="techExtensor">Tech Extensor</option>
+        <option value="techExtensor">Microsoft</option>
+        <option value="google">Google</option>
+        <option value="adobe">Adobe</option>
+        <option value="facebook">Facebook</option>
+        <option value="tcs">TCS</option>
+        <option value="Infosys">Infosys</option>
+        <option value="twitter">Twitter</option>
+    </select>
+    <br><br><br>
+    <div class="row container-fluid">
+
+        <div class="col btn">
+            <button (click)="Back()">Back</button>
+        </div>
+
+        <div class="col btn">
+            <input type="reset" value="Clear Form">
+        </div>
+
+        <div class="col btn">
+            <button type="submit">Submit</button>
+        </div>
+
+    </div>
+
+</form>
